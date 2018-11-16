@@ -9,7 +9,7 @@ This analysis uses the un-published British Columbia hunter day information
 
 ## Usage
 
-There are four core scripts that are required for the IUCN threat assessment analysis, they need to be run in order:
+There are four core scripts that are required for the Hunter Density analysis, they need to be run in order:
 
 -   01\_load.R
 -   02\_clean.R
