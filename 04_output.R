@@ -15,8 +15,8 @@ source("header.R")
 
 # Hunter Day Density raster with full WMU area
 HuntDDensR<-subs(WMUr,WMUdat, by='WMU',which='HunterDayDensity')
-writeRaster(HuntDDensR, filename=file.path(dataOutDir,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
+writeRaster(HuntDDensR, filename=file.path(BearRDataDirOut,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
 #
 # Hunter Day Density raster with WMU area less rock, ice, water
 HuntDDensNonHabR<-subs(WMUr,WMUdat, by='WMU',which='nHabHunterDayDensity')
-writeRaster(HuntDDensNonHabR, filename=file.path(dataOutDir,"HuntDDensNonHabR.tif"), format="GTiff", overwrite=TRUE)
+writeRaster(HuntDDensNonHabR, filename=file.path(BearRDataDirOut,"HuntDDensNonHabR.tif"), format="GTiff", overwrite=TRUE)
