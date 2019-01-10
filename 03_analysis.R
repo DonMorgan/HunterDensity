@@ -12,6 +12,22 @@
 
 source("header.R")
 
+#calculate hunter days density by GBPU days/1000km2
+#Calculate area of each WMU and join to Hunt data set
+WMUarea<-data.frame(freq(WMUr, parellel=FALSE))
+colnames(WMUarea)<-c('WMU','AreaHa')
+WMUdat1<-merge(HuntStat, WMUarea, by='WMU')
+WMUdat1$HunterDayDensity<-WMUdat1$TotnDays/WMUdat1$AreaHa*100
+#Takes a long time to run subs - perhaps do prior to rasterize? ie do to WMU then fasterize on new column?
+
+#data for area with non habitat removed - rock, ice, water
+WMUnonHabarea<-data.frame(freq(WMUr_NonHab, parellel=FALSE))
+colnames(WMUnonHabarea)<-c('WMU','nHabAreaHa')
+WMUdat<-merge(WMUdat1, WMUnonHabarea, by='WMU')
+WMUdat$nHabHunterDayDensity<-WMUdat$TotnDays/WMUdat$nHabAreaHa*100
+
+##############################
+## Old Code
 
 #sum number of kills by WMU
 #paste(killData$Region_code,killData$MU,sep='-')
