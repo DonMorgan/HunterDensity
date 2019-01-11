@@ -1,51 +1,53 @@
-# HunterDensity
-Repo to estimate hunter density in BC
+<!-- Add a project state badge
+See https://github.com/BCDevExchange/Our-Project-Docs/blob/master/discussion/projectstates.md
+If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badge' Addin. -->
+HunterDensity
+=============
 
-This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess hunter density in BC.
+This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by
 
-## Data
-**Hunter Day Density**:
-This analysis uses the un-published British Columbia hunter day information
+Data
+----
 
-## Usage
+Hunter Day Densities are summarized from Big Game Harvest Statistics 1976-2017 - requires FLNRORD fish and wildlife permission for access
 
-There are four core scripts that are required for the Hunter Density analysis, they need to be run in order:
+Wildlife Management Units [Wildlife Management Unit](https://catalogue.data.gov.bc.ca/dataset/wildlife-management-units)
+
+### Usage
+
+There are four core scripts that are required for the analysis, they need to be run in order:
 
 -   01\_load.R
 -   02\_clean.R
 -   03\_analysis.R
 -   04\_output.R
 
-Or you can run all four scripts using run_all.R.
+### Project Status
 
-All packages used in the analyses can be installed from CRAN using `install.packages()`.
+### Getting Help or Reporting an Issue
 
-## Getting Help or Reporting an Issue
+To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/HunterDensity/issues/).
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov-c/intact-landcover/issues/).
-
-## How to Contribute
+### How to Contribute
 
 If you would like to contribute, please see our [CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
-By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-## Licence
+### License
 
     Copyright 2018 Province of British Columbia
 
-    Licensed under the Apache License, Version 2.0 (the "License");
+    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
+    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+    See the License for the specific language governing permissions and limitations under the License.
 
+------------------------------------------------------------------------
 
-This repository is maintained by [ENVEcosystems](https://github.com/orgs/bcgov/teams/envecosystems/members).
+*This project was created using the [bcgovr](https://github.com/bcgov/bcgovr) package.*
