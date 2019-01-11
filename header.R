@@ -14,6 +14,7 @@
 library(sf)
 library(dplyr)
 library(plyr)
+library(maptools)
 library(readr)
 library(raster)
 library(bcmaps)
@@ -23,7 +24,6 @@ library(rio)
 library(WriteXLS)
 library(readxl)
 library(openxlsx)
-library(rgdal)
 library(RColorBrewer)
 
 OutDir <- 'out'

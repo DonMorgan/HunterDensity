@@ -4,7 +4,7 @@ If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badg
 HunterDensity
 =============
 
-This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by Wildlife Management Units
+This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by Wildlife Management Units (WMU). It generates a summary table by WMU and a provincial raster of Hunter Day Densities.
 
 Data
 ----

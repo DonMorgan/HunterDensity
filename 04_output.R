@@ -13,9 +13,13 @@
 
 source("header.R")
 
+#Write out an excel file of WMUs and summarized data
+WriteXLS(WMUdat, file.path(dataOutDir,paste('WMUdat.xls',sep='')))#,SheetNames=names(ThreatLevels))
+
 # Hunter Day Density raster with full WMU area
 HuntDDensR<-subs(WMUr,WMUdat, by='WMU',which='HunterDayDensity')
 writeRaster(HuntDDensR, filename=file.path(BearRDataDirOut,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
+
 #
 # Hunter Day Density raster with WMU area less rock, ice, water
 HuntDDensNonHabR<-subs(WMUr,WMUdat, by='WMU',which='nHabHunterDayDensity')
