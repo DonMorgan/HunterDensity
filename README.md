@@ -4,14 +4,14 @@ If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badg
 HunterDensity
 =============
 
-This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by
+This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by Wildlife Management Units
 
 Data
 ----
 
 Hunter Day Densities are summarized from Big Game Harvest Statistics 1976-2017 - requires FLNRORD fish and wildlife permission for access
 
-Wildlife Management Units [Wildlife Management Unit](https://catalogue.data.gov.bc.ca/dataset/wildlife-management-units)
+Wildlife Management Units [Wildlife Management Units](https://catalogue.data.gov.bc.ca/dataset/wildlife-management-units)
 
 ### Usage
 
@@ -21,8 +21,6 @@ There are four core scripts that are required for the analysis, they need to be 
 -   02\_clean.R
 -   03\_analysis.R
 -   04\_output.R
-
-### Project Status
 
 ### Getting Help or Reporting an Issue
 
@@ -51,3 +49,5 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 ------------------------------------------------------------------------
 
 *This project was created using the [bcgovr](https://github.com/bcgov/bcgovr) package.*
+
+This repository is maintained by [ENVEcosystems](https://github.com/orgs/bcgov/teams/envecosystems/members).
