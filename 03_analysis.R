@@ -12,7 +12,7 @@
 
 source("header.R")
 
-#calculate hunter days density by GBPU days/1000km2
+#calculate hunter days density by GBPU days/km2
 #Calculate area of each WMU and join to Hunt data set
 WMUarea<-data.frame(freq(WMUr, parellel=FALSE))
 colnames(WMUarea)<-c('WMU','AreaHa')
