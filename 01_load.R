@@ -19,9 +19,13 @@ source("header.R")
 #Read WMU raster from the GB_Data directory - WMUs are from the 2015 CE grizzly bear data set - validated by Tony Hamilton
 WMUr<-raster(file.path(StrataDir,"WMUr.tif"))
 WMUr_NonHab<-raster(file.path(StrataDir,"WMUr_NonHab.tif"))
-
+WMU<-st_read(file.path(GBspatialDir,'WMU.shp'))
 
 #Read in hunter data from the repo's data directory - data only available by request
-Hunt <- data.frame(read.xlsx(file.path(DataDir, "BIG GAME HARVEST STATISTICS 1976 - 2017 v1.xlsx"), sheet='BGHS'))
+#select the last 5 years of data
+Hunt <-
+  data.frame(read.xlsx(file.path(DataDir, "BIG GAME HARVEST STATISTICS 1976 - 2017 v1.xlsx"), sheet='BGHS')) %>%
+  dplyr::filter(HUNT.YEAR > 2012)
+
 #set NA to 0
 Hunt[is.na(Hunt)] <- 0

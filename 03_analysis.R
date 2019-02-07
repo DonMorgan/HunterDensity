@@ -20,6 +20,9 @@ WMUdat1<-merge(HuntStat, WMUarea, by='WMU')
 WMUdat1$HunterDayDensity<-WMUdat1$TotnDays/WMUdat1$AreaHa*100
 #Takes a long time to run subs - perhaps do prior to rasterize? ie do to WMU then fasterize on new column?
 
+# Attache data to shape file
+WMUh<-merge(WMU,WMUdat1, by='WMU') #not tested
+
 #data for area with non habitat removed - rock, ice, water
 WMUnonHabarea<-data.frame(freq(WMUr_NonHab, parellel=FALSE))
 colnames(WMUnonHabarea)<-c('WMU','nHabAreaHa')

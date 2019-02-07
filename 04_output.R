@@ -18,9 +18,11 @@ WriteXLS(WMUdat, file.path(dataOutDir,paste('WMUdat.xls',sep='')))#,SheetNames=n
 
 # Hunter Day Density raster with full WMU area
 HuntDDensR<-subs(WMUr,WMUdat, by='WMU',which='HunterDayDensity')
-writeRaster(HuntDDensR, filename=file.path(BearRDataDirOut,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
+writeRaster(HuntDDensR, filename=file.path(spatialOutDir,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
+# Write out a WMU shapefile with Hunter Density
+st_write(WMUh, file.path(spatialOutDir,'WMUh.shp'), delete_layer = TRUE)
 
 #
 # Hunter Day Density raster with WMU area less rock, ice, water
 HuntDDensNonHabR<-subs(WMUr,WMUdat, by='WMU',which='nHabHunterDayDensity')
-writeRaster(HuntDDensNonHabR, filename=file.path(BearRDataDirOut,"HuntDDensNonHabR.tif"), format="GTiff", overwrite=TRUE)
+writeRaster(HuntDDensNonHabR, filename=file.path(spatialOutDir,"HuntDDensNonHabR.tif"), format="GTiff", overwrite=TRUE)

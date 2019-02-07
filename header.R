@@ -32,6 +32,7 @@ figsOutDir <- file.path(OutDir,'figures')
 spatialOutDir <- file.path(OutDir,'spatial')
 DataDir <- 'data'
 StrataDir <- file.path('../GB_Data/out/Strata')
+GBspatialDir <- file.path('../GB_Data/out/spatial')
 
 dir.create(file.path(OutDir), showWarnings = FALSE)
 dir.create(file.path(dataOutDir), showWarnings = FALSE)

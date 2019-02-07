@@ -12,13 +12,16 @@
 
 source("header.R")
 
-#Combine Resident and non-Resident hunters
+#Combine Resident and non-Resident hunters and calculate average number/year
+
 Hunt$nHunters<-Hunt$RESIDENT.HUNTERS+Hunt$NON.RESIDENT.HUNTERS
 Hunt$nDays<-Hunt$RESIDENT.DAYS+Hunt$NON.RESIDENT.DAYS
 Hunt$nkills<-Hunt$RESIDENT.KILLS+Hunt$NON.RESIDENT.KILLS
 
-#sum for each WMU and calculate hunter density - all species
+#sum for each WMU and calculate hunter density - all species - per year
+NumYears<-length(unique(Hunt$HUNT.YEAR))
+
 HuntStat<-Hunt %>%
   group_by(WMU) %>%
-  dplyr::summarise(count=n(), TotnHunters=sum(nHunters), TotnDays=sum(nDays), TotnKills=sum(nkills))
+  dplyr::summarise(count=n(), TotnHunters=sum(nHunters)/NumYears, TotnDays=sum(nDays)/NumYears, TotnKills=sum(nkills)/NumYears)
 HuntStat
