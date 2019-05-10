@@ -16,7 +16,7 @@
 
 source("header.R")
 
-#Read WMU raster from the GB_Data directory - WMUs are from the 2015 CE grizzly bear data set - validated by Tony Hamilton
+#Read WMU raster from the GB_Data directory - WMUs are from DataBC
 WMUr<-raster(file.path(StrataDir,"WMUr.tif"))
 WMUr_NonHab<-raster(file.path(StrataDir,"WMUr_NonHab.tif"))
 WMU<-st_read(file.path(GBspatialDir,'WMU.shp'))

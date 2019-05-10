@@ -21,7 +21,22 @@ Hunt$nkills<-Hunt$RESIDENT.KILLS+Hunt$NON.RESIDENT.KILLS
 #sum for each WMU and calculate hunter density - all species - per year
 NumYears<-length(unique(Hunt$HUNT.YEAR))
 
+#Hunter Data not assigned to a MU but only to a region is a '00' record
+#Regional totals are assigned '99' records
+#Hunter Data not assgined to a MU or to a Region are 999
+#7A and 7B appear to be sub-region totals
+#all of these cases are dropped
+excludes<-c("100", "199", "200", "299", "300", "399", "400", "499", "500", "599",
+           "600", "699", "700", "799", "7A",  "7B",  "800", "899", "999")
+
+#Divide by number of years to get per year
 HuntStat<-Hunt %>%
   group_by(WMU) %>%
+  dplyr::filter(!(WMU %in% excludes)) %>%
   dplyr::summarise(count=n(), TotnHunters=sum(nHunters)/NumYears, TotnDays=sum(nDays)/NumYears, TotnKills=sum(nkills)/NumYears)
 HuntStat
+
+#test<-setdiff(HuntStat$WMU,WMU$WMU) #19records missing from WMU
+#test2<-setdiff(WMU$WMU,HuntStat$WMU) #3 records missing from HuntStat
+
+

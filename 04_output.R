@@ -14,15 +14,22 @@
 source("header.R")
 
 #Write out an excel file of WMUs and summarized data
-WriteXLS(WMUdat, file.path(dataOutDir,paste('WMUdat.xls',sep='')))#,SheetNames=names(ThreatLevels))
+WriteXLS(WMUdata, file.path(dataOutDir,paste('Hunter_WMUdata.xls',sep='')))#,SheetNames=names(ThreatLevels))
 
 # Hunter Day Density raster with full WMU area
-HuntDDensR<-subs(WMUr,WMUdat, by='WMU',which='HunterDayDensity')
+HuntDDensR<-subs(WMUr,WMUdat1, by='WMU',which='HunterDayDensity')
 writeRaster(HuntDDensR, filename=file.path(spatialOutDir,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
-# Write out a WMU shapefile with Hunter Density
-st_write(WMUh, file.path(spatialOutDir,'WMUh.shp'), delete_layer = TRUE)
+# Write out a WMU shapefile with Hunter Density to 'ShapeFile' directory
+ShapeDir<-file.path(spatialOutDir,'ShapeFile')
+dir.create(ShapeDir, showWarnings = FALSE)
+
+st_write(WMUh, file.path(ShapeDir,'Hunter_WMU.shp'), delete_layer = TRUE)
+
+filesToZip<-dir(ShapeDir)
+zip(file.path(ShapeDir,'HunterWMUshape.zip'),file.path(ShapeDir,filesToZip))
+zip(file.path(spatialOutDir,'HunterWMUshape.zip'),file.path(ShapeDir,filesToZip))
 
 #
 # Hunter Day Density raster with WMU area less rock, ice, water
-HuntDDensNonHabR<-subs(WMUr,WMUdat, by='WMU',which='nHabHunterDayDensity')
+HuntDDensNonHabR<-subs(WMUr_NonHab,WMUdat, by='WMU',which='nHabHunterDayDensity')
 writeRaster(HuntDDensNonHabR, filename=file.path(spatialOutDir,"HuntDDensNonHabR.tif"), format="GTiff", overwrite=TRUE)
