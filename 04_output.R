@@ -13,9 +13,17 @@
 
 source("header.R")
 
+#Write out vector based results
+HuntWMU_dat<-HuntWMU
+st_geometry(HuntWMU_dat) <- NULL
+WriteXLS(HuntWMU_dat, file.path(dataOutDir,paste('HuntWMU_dat.xls',sep='')))#,SheetNames=names(ThreatLevels))
+#Write as geopackage to preserve variable names
+st_write(HuntWMU, dsn = file.path(spatialOutDir,'HuntWMU.gpkg'), layer = 'HuntWMU', delete_layer = TRUE)
+
+###############################
+#Raster methods
 #Write out an excel file of WMUs and summarized data
 WriteXLS(WMUdata, file.path(dataOutDir,paste('Hunter_WMUdata.xls',sep='')))#,SheetNames=names(ThreatLevels))
-
 # Hunter Day Density raster with full WMU area
 HuntDDensR<-subs(WMUr,WMUdat1, by='WMU',which='HunterDayDensity')
 writeRaster(HuntDDensR, filename=file.path(spatialOutDir,"HuntDDensR.tif"), format="GTiff", overwrite=TRUE)
@@ -28,8 +36,10 @@ st_write(WMUh, file.path(ShapeDir,'Hunter_WMU.shp'), delete_layer = TRUE)
 filesToZip<-dir(ShapeDir)
 zip(file.path(ShapeDir,'HunterWMUshape.zip'),file.path(ShapeDir,filesToZip))
 zip(file.path(spatialOutDir,'HunterWMUshape.zip'),file.path(ShapeDir,filesToZip))
-
 #
 # Hunter Day Density raster with WMU area less rock, ice, water
 HuntDDensNonHabR<-subs(WMUr_NonHab,WMUdat, by='WMU',which='nHabHunterDayDensity')
 writeRaster(HuntDDensNonHabR, filename=file.path(spatialOutDir,"HuntDDensNonHabR.tif"), format="GTiff", overwrite=TRUE)
+
+
+

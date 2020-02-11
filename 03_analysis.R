@@ -12,6 +12,13 @@
 
 source("header.R")
 
+#calculate hunter day density
+HuntWMU <- HuntWMU %>%
+  mutate(HunterDayDensity=HuntWMU$TotnDays/HuntWMU$AREA_KM2) %>%
+  mutate(HunterDayDensity_noWaterIce=HuntWMU$TotnDays/HuntWMU$AREA_KM2_noWaterIce)
+
+#################
+#Raster methods
 #calculate hunter days density by GBPU days/km2
 #Calculate area of each WMU and join to Hunt data set
 WMUarea<-data.frame(freq(WMUr, parellel=FALSE))
@@ -23,9 +30,6 @@ WMUdat1[is.na(WMUdat1)] <- 0
 #multiply to go from square hectares to square kilometers
 WMUdat1$HunterDayDensity<-WMUdat1$TotnDays/WMUdat1$AreaHa*100
 #Takes a long time to run subs - perhaps do prior to rasterize? ie do to WMU then fasterize on new column?
-
-# Attache data to shape file
-WMUh<-merge(WMU,WMUdat1, by='WMU') #not tested
 
 #data for area with non habitat removed - rock, ice, water
 WMUnonHabarea<-data.frame(freq(WMUr_NonHab, parellel=FALSE))

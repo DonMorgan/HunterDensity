@@ -25,6 +25,7 @@ library(WriteXLS)
 library(readxl)
 library(openxlsx)
 library(RColorBrewer)
+library(rgdal)
 
 OutDir <- 'out'
 dataOutDir <- file.path(OutDir,'data')
@@ -33,6 +34,7 @@ spatialOutDir <- file.path(OutDir,'spatial')
 DataDir <- 'data'
 StrataDir <- file.path('../GB_Data/out/Strata')
 GBspatialDir <- file.path('../GB_Data/out/spatial')
+GBPDir <-file.path('../GB_Data/data/Population/Bear_Density_2018')
 
 dir.create(file.path(OutDir), showWarnings = FALSE)
 dir.create(file.path(dataOutDir), showWarnings = FALSE)

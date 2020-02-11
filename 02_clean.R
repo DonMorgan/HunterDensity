@@ -13,7 +13,6 @@
 source("header.R")
 
 #Combine Resident and non-Resident hunters and calculate average number/year
-
 Hunt$nHunters<-Hunt$RESIDENT.HUNTERS+Hunt$NON.RESIDENT.HUNTERS
 Hunt$nDays<-Hunt$RESIDENT.DAYS+Hunt$NON.RESIDENT.DAYS
 Hunt$nkills<-Hunt$RESIDENT.KILLS+Hunt$NON.RESIDENT.KILLS
@@ -32,10 +31,30 @@ excludes<-c("100", "199", "200", "299", "300", "399", "400", "499", "500", "599"
 #Divide by number of years to get per year
 HuntStat<-Hunt %>%
   group_by(WMU) %>%
-  dplyr::filter(!(WMU %in% excludes)) %>%
-  dplyr::summarise(count=n(), TotnHunters=sum(nHunters)/NumYears, TotnDays=sum(nDays)/NumYears, TotnKills=sum(nkills)/NumYears)
-HuntStat
+  dplyr::filter(!(WMU %in% excludes | is.na(WMU))) %>%
+  dplyr::summarise(count=n(), TotnHunters=sum(nHunters)/NumYears,
+                   TotnDays=sum(nDays)/NumYears, TotnKills=sum(nkills)/NumYears)
 
+#aggregate GBPop since WMUs split between GBPUs, etc resulting in multiple instances of WMU
+GBPop1<-GBPop %>%
+  group_by(WMU) %>%
+  dplyr::summarise(count=n(),AREA_KM2=sum(AREA_KM2),AREA_KM2_BTMwaterIce=sum(AREA_KM2_BTMwaterIce),
+                   AREA_KM2_noWaterIce=sum(AREA_KM2_noWaterIce),EST_POP_2018=sum(EST_POP_2018))
+
+#Join Hunt data to GBPop1 data set
+HuntWMU<-GBPop1 %>%
+  left_join(HuntStat, by='WMU')
+
+#3 units 201 345 701 - have no hunters and thus are set as NA - change to 0
+HuntWMU[is.na(HuntWMU)] <- 0
+
+#####################
+#data check
+#setdiff(GBPop1$WMU, HuntStat$WMU)
+#library(mapview)
+#mapview(HuntWMU)
+#HuntWMU[order(HuntWMU$WMU),]$WMU
+#HuntStat[order(HuntStat$WMU),]$WMU
 #test<-setdiff(HuntStat$WMU,WMU$WMU) #19records missing from WMU
 #test2<-setdiff(WMU$WMU,HuntStat$WMU) #3 records missing from HuntStat
 
