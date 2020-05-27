@@ -4,18 +4,25 @@ If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badg
 HunterDensity
 =============
 
-This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by Wildlife Management Units (WMU). It generates a summary table by WMU and a provincial raster of Hunter Day Densities.
+This repository contains [R](https://www.r-project.org/) code that
+summarizes spatial & tabular data to assess Hunter Day Densities by
+Wildlife Management Units (WMU). It generates a summary table by WMU and
+provincial rasters of Hunter Day Densities.
 
 Data
 ----
 
-Hunter Day Densities are summarized from Big Game Harvest Statistics 1976-2017 - requires FLNRORD fish and wildlife permission for access
+Hunter Day Densities are summarized from Big Game Harvest Statistics.
+The analysis uses the 5 year period 2013 - 2017. It requires FLNRORD
+fish and wildlife permission for access.
 
-Wildlife Management Units [Wildlife Management Units](https://catalogue.data.gov.bc.ca/dataset/wildlife-management-units)
+Wildlife Management Units [Wildlife Management
+Units](https://catalogue.data.gov.bc.ca/dataset/wildlife-management-units)
 
 ### Usage
 
-There are four core scripts that are required for the analysis, they need to be run in order:
+There are four core scripts that are required for the analysis, they
+need to be run in order:
 
 -   01\_load.R
 -   02\_clean.R
@@ -24,13 +31,17 @@ There are four core scripts that are required for the analysis, they need to be 
 
 ### Getting Help or Reporting an Issue
 
-To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/HunterDensity/issues/).
+To report bugs/issues/feature requests, please file an
+[issue](https://github.com/bcgov/HunterDensity/issues/).
 
 ### How to Contribute
 
-If you would like to contribute, please see our [CONTRIBUTING](CONTRIBUTING.md) guidelines.
+If you would like to contribute, please see our
+[CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
 
 ### License
 
@@ -48,6 +59,8 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ------------------------------------------------------------------------
 
-*This project was created using the [bcgovr](https://github.com/bcgov/bcgovr) package.*
+*This project was created using the
+[bcgovr](https://github.com/bcgov/bcgovr) package.*
 
-This repository is maintained by [ENVEcosystems](https://github.com/orgs/bcgov/teams/envecosystems/members).
+This repository is maintained by
+[ENVEcosystems](https://github.com/orgs/bcgov/teams/envecosystems/members).
