@@ -20,7 +20,7 @@ If you have bcgovr installed and you use RStudio, click the 'Insert BCDevex Badg
 This repository contains [R](https://www.r-project.org/) code that summarizes spatial & tabular data to assess Hunter Day Densities by Wildlife Management Units (WMU). It generates a summary table by WMU and provincial rasters of Hunter Day Densities.
 
 ## Data
-Hunter Day Densities are summarized from Big Game Harvest Statistics 1976-2017 - requires FLNRORD fish and wildlife permission for access
+Hunter Day Densities are summarized from Big Game Harvest Statistics. The analysis uses the 5 year period 2013 - 2017. It requires FLNRORD fish and wildlife permission for access.
 
 Wildlife Management Units
 [Wildlife Management Units](https://catalogue.data.gov.bc.ca/dataset/wildlife-management-units)
